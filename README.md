@@ -17,3 +17,5 @@ Provides functionality to generate reports on voter information and voting activ
 
 ## Database Created 
 MySQL database named "Voterdb"
+
+All the queries related to the database are in 'table structure.txt' in 'Sql tables' folder.
