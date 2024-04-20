@@ -1,0 +1,68 @@
+
+create database voterdb;
+use voterdb;
+
+drop table Voting_Details;
+drop table Candidate_Registration;
+drop table Election_Status;
+drop table Voter_Registration;
+
+create table Voter_Registration
+(Voter_Name varchar(50) not null,
+Voter_ID varchar(10) primary key,
+Adhaar_Number bigint unique not null,
+Age integer check(age>17),
+Parent_or_Spouse_Name varchar(50),
+Gender char(1),
+Locality varchar(50) not null,
+Parliamentary_Constituency varchar(50),
+Assembly_Constituency varchar(50));
+
+
+create table Voting_Details
+(Voter_ID varchar(10),
+Year integer,
+Election_Type char(2) not null,
+Vote_Count integer default 0,
+foreign key(Voter_ID) references Voter_Registration(Voter_ID));
+
+
+create table Candidate_Registration
+(Voter_ID varchar(10) unique,
+Voter_Name varchar(50) not null,
+PE_Contesting_Constituency varchar(50),
+AE_Contesting_Constituency varchar(50),
+Party_Name varchar(50) not null,
+Party_Symbol_Name varchar(50) not null,
+foreign key(Voter_ID) references Voter_Registration(Voter_ID));
+
+create table Election_Status
+(Year integer not null,
+Election_Type varchar(2) not null,
+Results_declared char(1) default 'N');
+
+select * from Voter_Registration;
+select * from Voting_Details;
+select * from Candidate_Registration;
+select * from Election_Status;
+
+desc Voter_Registration;
+desc Voting_Details;
+desc Candidate_Registration;
+desc Election_Status;
+
+delete from Voter_Registration;
+delete from Voting_Details;
+delete from Candidate_Registration;
+delete from Election_Status;
+
+insert into Voter_Registration values
+('34',
+'8',
+null,
+18,
+'ugyy',
+'o',
+'ko',
+'',
+'');
