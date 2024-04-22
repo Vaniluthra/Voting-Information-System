@@ -19,3 +19,6 @@ Provides functionality to generate reports on voter information and voting activ
 MySQL database named "Voterdb"
 
 All the queries related to the database are in 'table structure.txt' in 'Sql tables' folder.
+
+## Run Locally
+Execute the python file, voterdb.py to run the model on your system. 
